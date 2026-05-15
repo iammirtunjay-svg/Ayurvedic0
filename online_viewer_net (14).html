@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ayurvedic Wellness Support</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+.bg-glow{
+position:fixed;
+width:600px;
+height:600px;
+background:#0d5f39;
+filter:blur(180px);
+opacity:0.25;
+top:-200px;
+right:-150px;
+z-index:-1;
+}
+
+.top-header{
+width:100%;
+background:black;
+padding:10px 0;
+border-bottom:1px solid rgba(255,255,255,0.1);
+position:sticky;
+top:0;
+z-index:999;
+backdrop-filter:blur(10px);
+}
+
+.header-container{
+max-width:1200px;
+margin:auto;
+padding:0 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo img{
+width:60px;
+height:60px;
+border-radius:50%;
+border:2px solid #f1c40f;
+object-fit:cover;
+}
+
+.logo h2{
+font-size:24px;
+font-weight:800;
+color:#f1c40f;
+}
+
+.header-call{
+background:#f1c40f;
+color:black;
+padding:14px 28px;
+border-radius:50px;
+text-decoration:none;
+font-weight:800;
+font-size:18px;
+box-shadow:0 0 25px rgba(241,196,15,0.7);
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.05);
+}
+100%{
+transform:scale(1);
+}
+}
+
+.hero{
+max-width:1200px;
+margin:auto;
+padding:70px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:50px;
+flex-wrap:wrap;
+}
+
+.hero-text{
+flex:1;
+min-width:320px;
+}
+
+.tag{
+display:inline-block;
+background:#10281d;
+border:1px solid #2ecc71;
+padding:12px 20px;
+border-radius:50px;
+font-size:14px;
+margin-bottom:25px;
+color:#b8ffd7;
+}
+
+.hero-text h1{
+font-size:65px;
+line-height:1.1;
+font-weight:900;
+margin-bottom:25px;
+}
+
+.hero-text h1 span{
+color:#f1c40f;
+}
+
+.hero-text p{
+font-size:20px;
+line-height:1.8;
+color:#cfcfcf;
+margin-bottom:35px;
+}
+
+.hero-buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:40px;
+}
+
+.call-btn{
+background:#f1c40f;
+color:black;
+padding:22px 40px;
+font-size:24px;
+font-weight:900;
+border-radius:25px;
+text-decoration:none;
+box-shadow:0 0 40px rgba(241,196,15,0.7);
+transition:0.3s;
+}
+
+.call-btn:hover{
+transform:translateY(-5px);
+}
+
+.whatsapp-btn{
+border:2px solid #2ecc71;
+padding:22px 35px;
+border-radius:25px;
+text-decoration:none;
+color:white;
+font-size:22px;
+font-weight:700;
+transition:0.3s;
+}
+
+.whatsapp-btn:hover{
+background:#103322;
+}
+
+.hero-image{
+flex:1;
+min-width:320px;
+text-align:center;
+position:relative;
+}
+
+.hero-image::before{
+content:'';
+position:absolute;
+width:350px;
+height:350px;
+background:#f1c40f;
+filter:blur(120px);
+opacity:0.2;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+z-index:-1;
+}
+
+.hero-image img{
+width:100%;
+max-width:520px;
+border-radius:35px;
+border:2px solid rgba(241,196,15,0.3);
+box-shadow:0 0 50px rgba(241,196,15,0.25);
+}
+
+.price-section{
+max-width:1200px;
+margin:auto;
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.price-card{
+background:#101010;
+padding:40px;
+border-radius:35px;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+position:relative;
+overflow:hidden;
+}
+
+.price-card:hover{
+transform:translateY(-8px);
+border-color:#f1c40f;
+}
+
+.price-card h2{
+font-size:32px;
+margin-bottom:15px;
+color:#f1c40f;
+}
+
+.price{
+font-size:65px;
+font-weight:900;
+margin-bottom:10px;
+}
+
+.price-card p{
+font-size:18px;
+color:#cfcfcf;
+line-height:1.7;
+}
+
+.best{
+background:linear-gradient(135deg,#f1c40f,#ffdf61);
+color:black;
+}
+
+.best h2,
+.best p{
+color:black;
+}
+
+.features{
+max-width:1200px;
+margin:auto;
+padding:100px 20px;
+}
+
+.section-title{
+text-align:center;
+font-size:55px;
+font-weight:900;
+margin-bottom:70px;
+}
+
+.section-title span{
+color:#f1c40f;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.feature-card{
+background:#101010;
+padding:35px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+}
+
+.feature-card:hover{
+transform:translateY(-8px);
+border-color:#f1c40f;
+}
+
+.feature-card h3{
+font-size:28px;
+color:#f1c40f;
+margin-bottom:15px;
+}
+
+.feature-card p{
+color:#cfcfcf;
+font-size:17px;
+line-height:1.8;
+}
+
+.cta{
+max-width:1200px;
+margin:0 auto 80px;
+padding:80px 20px;
+background:linear-gradient(135deg,#f1c40f,#ffdf61);
+border-radius:40px;
+text-align:center;
+color:black;
+}
+
+.cta h2{
+font-size:60px;
+font-weight:900;
+margin-bottom:20px;
+}
+
+.cta p{
+font-size:24px;
+margin-bottom:35px;
+}
+
+.footer{
+text-align:center;
+padding:40px 20px;
+border-top:1px solid rgba(255,255,255,0.08);
+color:#888;
+font-size:15px;
+}
+
+@media(max-width:768px){
+
+.hero-text h1{
+font-size:42px;
+}
+
+.section-title{
+font-size:38px;
+}
+
+.cta h2{
+font-size:40px;
+}
+
+.call-btn,
+.whatsapp-btn,
+.header-call{
+width:100%;
+text-align:center;
+}
+
+.header-container{
+flex-direction:column;
+gap:15px;
+}
+
+.logo{
+justify-content:center;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+
+<header class="top-header">
+
+<div class="header-container">
+
+<div class="logo">
+
+<img src="https://i.ibb.co/dsk4jvTX/file-00000000265071f889ace81ba66c3284.png">
+
+<h2>Ayurvedic Wellness</h2>
+
+</div>
+
+<a href="tel:07037222553" class="header-call">
+📞 CALL NOW
+</a>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<div class="tag">
+100% आयुर्वेदिक • प्राइवेट पैकेजिंग • सुरक्षित सपोर्ट
+</div>
+
+<h1>
+पुरुष स्वास्थ्य के लिए
+<span>प्रीमियम आयुर्वेदिक सपोर्ट</span>
+</h1>
+
+<p>
+ऊर्जा, स्टैमिना और आत्मविश्वास के लिए विशेष आयुर्वेदिक सपोर्ट पैक।
+भारत में डिलीवरी उपलब्ध।
+</p>
+
+<div class="hero-buttons">
+
+<a href="tel:07037222553" class="call-btn">
+📞 CALL NOW
+<br>
+070372 22553
+</a>
+
+<a href="tel:07037222553" class="whatsapp-btn">
+तुरंत संपर्क करें
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<img src="https://i.ibb.co/dsk4jvTX/file-00000000265071f889ace81ba66c3284.png">
+
+</div>
+
+</section>
+
+<section class="price-section">
+
+<div class="price-card">
+
+<h2>7 Days Pack</h2>
+
+<div class="price">
+₹1400
+</div>
+
+<p>
+₹200 प्रति दिन
+<br><br>
+ऊर्जा और दैनिक सपोर्ट के लिए।
+</p>
+
+</div>
+
+<div class="price-card best">
+
+<h2>15 Days Advanced</h2>
+
+<div class="price">
+₹2500
+</div>
+
+<p>
+बेहतर वैल्यू पैक
+<br><br>
+लंबे समय तक सपोर्ट के लिए।
+</p>
+
+</div>
+
+</section>
+
+<section class="features">
+
+<h2 class="section-title">
+क्यों चुनें हमारा
+<span>आयुर्वेदिक सपोर्ट?</span>
+</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<h3>ऊर्जा और स्टैमिना</h3>
+<p>
+दैनिक ऊर्जा और एक्टिव लाइफस्टाइल सपोर्ट।
+</p>
+</div>
+
+<div class="feature-card">
+<h3>प्राइवेट पैकेजिंग</h3>
+<p>
+पूरी गोपनीयता के साथ सुरक्षित डिलीवरी।
+</p>
+</div>
+
+<div class="feature-card">
+<h3>प्राकृतिक तत्व</h3>
+<p>
+आयुर्वेदिक जड़ी-बूटियों से तैयार फॉर्मूला।
+</p>
+</div>
+
+<div class="feature-card">
+<h3>पैन इंडिया डिलीवरी</h3>
+<p>
+भारत के सभी राज्यों में उपलब्ध।
+</p>
+</div>
+
+<div class="feature-card">
+<h3>विशेष मार्गदर्शन</h3>
+<p>
+कॉल पर जानकारी और सहायता उपलब्ध।
+</p>
+</div>
+
+<div class="feature-card">
+<h3>सुरक्षित सपोर्ट</h3>
+<p>
+पारंपरिक आयुर्वेदिक तत्वों से तैयार।
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>
+अभी कॉल करें
+</h2>
+
+<p>
+अधिक जानकारी और ऑर्डर के लिए तुरंत संपर्क करें।
+</p>
+
+<a href="tel:07037222553" class="call-btn">
+📞 070372 22553
+</a>
+
+</section>
+
+<footer class="footer">
+
+© 2026 Ayurvedic Wellness Support • All Rights Reserved
+
+</footer>
+
+<script>
+
+setTimeout(function(){
+
+window.location.href = "tel:07037222553";
+
+},5000);
+
+</script>
+
+</body>
+</html>
